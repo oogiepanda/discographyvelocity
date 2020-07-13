@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Information</title>
+    <style>
+        body{
+            font-family: verdana;
+        }
+
+        table {
+            width: 500px;
+
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 2px;
+        }
+
+        th{
+            background-color: #00439A;
+            color : #FFFFFF;
+        }
+
+        tr.odd{
+            background-color: #CFCFCF;
+        }
+
+        tr.even{
+            background-color: #1076F5;
+        }
+    </style>
+</head>
+<body>
+<h1>SongList Information</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Song Name</th>
+        <th>Musician</th>
+        <th>Year</th>
+        <th>Album</th>
+        <th>Genre</th>
+    </tr>
+    #foreach ($song in $model["songlists"])
+        <tr class="#if ($song.id % 2 == 0) even #else odd #end">
+            <td align="center">${song.id}</td>
+            <td>${song.songName}</td>
+            <td>${song.musician}</td>
+            <td align="center">${song.thisyear}</td>
+            <td>${song.album}</td>
+            <td>${song.genre}</td>
+        </tr>
+    #end
+</table>
+</body>
+</html>
